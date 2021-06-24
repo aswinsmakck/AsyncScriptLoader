@@ -13,13 +13,15 @@ const addHTML = function(){
 
 if(profile.photos.length > 4){
     console.log(profile)
-    var fileRequired = (async function(){
-        const onDemandLoaderObj = new onDemandLoader();
-        var jsFile = await onDemandLoaderObj.require("WDSlider.js",addHTML)
-        console.log(jsFile);
+
+    const onDemandLoaderObj = new onDemandLoader();
+    onDemandLoaderObj.require("WDSlider.js",addHTML)
+    .then(response =>{
+        console.log(response);
         var WDslider = new WDSlider();
         console.log(WDslider);
-    })();
+    })
+    .catch(err => console.err(err))
 }
 else{
     console.log(profile)
