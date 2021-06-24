@@ -22,6 +22,13 @@ if(profile.photos.length > 4){
         console.log(WDslider);
     })
     .catch(err => console.err(err))
+    onDemandLoaderObj.require("WDSlider1.js",addHTML)
+    .then(response =>{
+        console.log(response);
+        var WDslider = new WDSlider();
+        console.log(WDslider);
+    })
+    .catch(err => console.err(err))
 }
 else{
     console.log(profile)
