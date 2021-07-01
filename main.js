@@ -21,7 +21,7 @@ if(profile.photos.length > 4){
     console.log(profile)
 
 
-    if(!window.Promise){
+    if(window.Promise){
         onDemandLoader.require("WDSlider.js")
         .then(response =>{
             console.log("------------in promise ---------------")
@@ -41,15 +41,46 @@ if(profile.photos.length > 4){
         .catch(err => console.error(err))
     }
     else{
-        try{
-            let va = onDemandLoader.require("WDSlider1.js",addHTML, errCb)
-            console.log(va);
-        }
-        catch(err){
-            console.error(err)
-        }
+        let va = onDemandLoader.require("WDSlider1.js",addHTML, errCb)
+        console.log(va);
     }
 }
 else{
     console.log(profile)
 }
+
+
+/*let val = 0;
+const clickHandler =(evt) =>{ 
+    let pr = new Promise((re, rej) =>{
+
+        if(val > 0){
+            rej()
+        }
+        else{
+            re();
+        }
+    });
+
+    val +=1;
+    console.log(pr);
+}
+*/
+
+
+/*console.log(document.querySelector("#as"));
+
+var clickHandler = (evt) => {
+    console.log("evt")
+}
+
+
+var prom = new Promise((resolve, reject) => {
+document.querySelector("#as").addEventListener("click", clickHandler)
+resolve();
+});
+
+prom.then(res => console.log(12));
+
+setinterval 
+*/
